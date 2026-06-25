@@ -17,6 +17,13 @@ The output contains:
 7. important symbols
 8. unknowns / not detected
 
+## Explainer Article
+
+I wrote a detailed explainer on the core idea behind this project:
+
+**[Stop Letting LLMs Hallucinate Your Codebase: A Graph-First Way to Summarize Repos](https://medium.com/towards-artificial-intelligence/stop-letting-llms-hallucinate-your-codebase-a-graph-first-way-to-summarize-repos-8a803db9c931)**
+
+
 ## Folder structure
 
 ```text
