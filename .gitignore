@@ -37,7 +37,6 @@ dist/
 # Generated app outputs
 # =========================
 outputs/
-output/
 generated/
 reports/
 
