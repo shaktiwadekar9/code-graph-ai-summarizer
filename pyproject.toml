@@ -1,0 +1,21 @@
+[project]
+name = "code-graph-ai-summarizer"
+version = "0.1.0"
+description = "AI repository summarizer powered by code graph analysis"
+requires-python = ">=3.11"
+dependencies = [
+    "cpgqls-client==0.0.9",
+    "openai>=1.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+code-graph-ai-summarizer = "code_graph_ai_summarizer.cli.main:main"
+
+[tool.uv]
+package = true
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+]

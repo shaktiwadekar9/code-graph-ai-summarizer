@@ -1,0 +1,101 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# =========================
+# Virtual environments
+# =========================
+.venv/
+venv/
+env/
+ENV/
+
+# =========================
+# uv / package build
+# =========================
+# Keep uv.lock committed for reproducible installs.
+# uv.lock
+
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Generated app outputs
+# =========================
+outputs/
+output/
+generated/
+reports/
+
+# Generated summary files
+repo_summary.md
+summary_facts.json
+joern_facts.json
+
+# =========================
+# Joern / CPG generated files
+# =========================
+.joern/
+joern-workspace/
+workspace/
+cpg.bin
+*.cpg
+*.cpg.bin
+*.semanticcpg
+*.semanticcpg.bin
+
+# =========================
+# Test / coverage
+# =========================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.tox/
+.nox/
+
+# =========================
+# Type check / lint cache
+# =========================
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.pytype/
+
+# =========================
+# Jupyter / notebooks
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Logs / temp files
+# =========================
+*.log
+logs/
+tmp/
+temp/
+.cache/
+
+# =========================
+# OS / editor
+# =========================
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
