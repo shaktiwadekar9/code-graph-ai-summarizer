@@ -5,6 +5,7 @@ import json
 import re
 from pathlib import Path
 from typing import Any
+import asyncio
 
 from cpgqls_client import CPGQLSClient, import_code_query
 
@@ -60,11 +61,26 @@ def parse_joern_json(stdout: str) -> Any:
 
     raise ValueError(f"Could not parse Joern JSON output:\n{text[:1000]}")
 
+def ensure_event_loop() -> asyncio.AbstractEventLoop:
+    """Return an event loop for the current thread.
+
+    FastAPI/Starlette can run normal sync endpoints in AnyIO worker threads.
+    Those worker threads may not have an asyncio event loop by default.
+    cpgqls-client needs one, so we create and attach one if missing.
+    """
+    try:
+        return asyncio.get_event_loop()
+    except RuntimeError:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        return loop
 
 class JoernRunner:
     """A class to interact with a Joern server for importing code repositories and running queries."""
+
     def __init__(self, server: str) -> None:
-        self.client = CPGQLSClient(server)
+        self.loop = ensure_event_loop()
+        self.client = CPGQLSClient(server, event_loop=self.loop)
 
     def import_repo(self, repo_path: Path, project_name: str) -> None:
         print(f"[joern] importing repo: {repo_path}")
